@@ -87,8 +87,14 @@ DATABASES = {
 }
 
 # Update database configuration from $DATABASE_URL.
+# Update database configuration from $DATABASE_URL.
 if 'DATABASE_URL' in os.environ:
-    DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+    url = os.environ['DATABASE_URL'].strip()
+    # Remove quotes if user accidentally included them
+    if (url.startswith("'") and url.endswith("'")) or (url.startswith('"') and url.endswith('"')):
+        url = url[1:-1]
+    
+    DATABASES['default'] = dj_database_url.parse(url, conn_max_age=600, ssl_require=True)
 
 
 # Password validation
