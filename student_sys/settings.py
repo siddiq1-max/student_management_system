@@ -96,6 +96,10 @@ if 'DATABASE_URL' in os.environ:
     
     DATABASES['default'] = dj_database_url.parse(url, conn_max_age=600, ssl_require=True)
 
+# Explicitly check for Vercel environment to catch configuration errors
+if 'VERCEL' in os.environ and 'DATABASE_URL' not in os.environ:
+    raise Exception("❌ CRITICAL ERROR: DATABASE_URL is missing. Please add it in Vercel Settings > Environment Variables.")
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
