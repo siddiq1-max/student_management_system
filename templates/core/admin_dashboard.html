@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="glass-card p-4 mb-4">
+    <h2 class="mb-4">Admin Dashboard</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="glass-card p-3 text-center mb-3">
+                <h4>Students</h4>
+                <p class="display-4 fw-bold">Manage</p>
+                <a href="/admin/core/studentprofile/" class="btn btn-3d btn-sm">View All</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card p-3 text-center mb-3">
+                <h4>Teachers</h4>
+                <p class="display-4 fw-bold">Manage</p>
+                <a href="/admin/core/teacherprofile/" class="btn btn-3d btn-sm">View All</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="glass-card p-3 text-center mb-3">
+                <h4>Subjects</h4>
+                <p class="display-4 fw-bold">Manage</p>
+                <a href="/admin/core/subject/" class="btn btn-3d btn-sm">View All</a>
+            </div>
+        </div>
+    </div>
+    <div class="mt-4 text-center">
+        <a href="/admin/" class="btn btn-lg btn-3d">Go to Full Admin Panel</a>
+    </div>
+</div>
+{% endblock %}
